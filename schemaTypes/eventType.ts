@@ -43,6 +43,10 @@ export const eventType = defineType({
         name: 'details',
         type: 'array',
         of: [{type: 'block'}]
+    }),
+    defineField({
+        name: 'tickets',
+        type: 'url'
     })
   ]
 })
