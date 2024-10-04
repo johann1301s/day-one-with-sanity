@@ -11,7 +11,7 @@ export const eventType = defineType({
   fields: [
     defineField({
       name: 'name',
-      group: 'details',
+      group: ['details', 'editorial'],
       type: 'string',
     }),
     defineField({
