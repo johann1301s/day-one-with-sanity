@@ -1,8 +1,10 @@
 import {defineField, defineType} from 'sanity'
+import {CalendarIcon} from '@sanity/icons'
 
 export const eventType = defineType({
   name: 'event',
   title: 'Event',
+  icon: CalendarIcon,
   type: 'document',
   groups: [
     {name: 'details', title: 'Details'},
