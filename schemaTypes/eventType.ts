@@ -84,5 +84,12 @@ export const eventType = defineType({
         group: 'details',
         type: 'url'
     })
-  ]
+  ],
+  preview: {
+    select: {
+      title: "name",
+      subtitle: "headline.name",
+      media: "image",
+    },
+  }
 })
