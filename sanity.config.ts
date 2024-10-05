@@ -9,7 +9,7 @@ export default defineConfig({
   name: 'default',
   title: 'Day one with Sanity',
 
-  projectId: 'z8gldu0c',
+  projectId: '5mo4u4lk',
   dataset: 'production',
 
   plugins: [structureTool({ structure, defaultDocumentNode }), visionTool()],
