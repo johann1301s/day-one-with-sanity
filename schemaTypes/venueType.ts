@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {BarChartIcon} from '@sanity/icons'
 
 export const venueType = defineType({
   name: 'venue',
@@ -10,4 +11,14 @@ export const venueType = defineType({
       type: 'string',
     }),
   ],
+  preview: {
+    select: {
+      title: 'name'
+    },
+    prepare: (prev) => ({
+      ...prev,
+      subtitle: '...',
+      media: BarChartIcon
+    })
+  }
 })
