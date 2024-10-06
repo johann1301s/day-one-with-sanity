@@ -18,7 +18,7 @@ export const myTheme = buildLegacyTheme({
   '--gray-base': '#666',
 
   '--component-bg': "#252830",
-  '--component-text-color': props['--my-white'],
+  '--component-text-color': props['--my-black'],
 
   /* Brand */
   '--brand-primary': props['--my-blue'],
