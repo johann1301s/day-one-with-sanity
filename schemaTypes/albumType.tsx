@@ -1,6 +1,6 @@
 import { defineField, defineType } from "sanity";
-import { EarthGlobeIcon, ActivityIcon } from '@sanity/icons'
 import { MyInputLocal } from "./components/MyInputLocal";
+import { Camera, AlarmClockPlus } from 'lucide-react';
 
 export const albumType = defineType({
   name: 'album',
@@ -13,12 +13,12 @@ export const albumType = defineType({
   groups: [{
     name: 'common',
     title: 'Common',
-    icon: ActivityIcon,
+    icon: Camera,
     default: true
   }, {
     name: 'dates',
     title: 'Dates',
-    icon: EarthGlobeIcon,
+    icon: AlarmClockPlus,
   }],
   fields: [
     defineField({

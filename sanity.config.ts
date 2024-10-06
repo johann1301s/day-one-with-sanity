@@ -5,6 +5,7 @@ import {schemaTypes} from './schemaTypes'
 import {structure} from './structure'
 import {defaultDocumentNode} from './structure/defaultDocumentNode'
 import { MyInput } from './schemaTypes/components/MyInput'
+import { myTheme } from './common/theme'
 
 export default defineConfig({
   name: 'default',
@@ -39,5 +40,6 @@ export default defineConfig({
   tools: (prev, {currentUser}) => {
     if (currentUser?.roles.some(({name}) => name === 'viewer')) return prev.filter((item) => item.name !== 'vision')
     return prev
-  }
+  },
+  theme: myTheme
 })
