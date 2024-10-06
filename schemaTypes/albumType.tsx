@@ -38,6 +38,10 @@ export const albumType = defineType({
       )
     }),
     defineField({
+      type: 'image',
+      name: 'image',
+    }),
+    defineField({
       type: 'datetime',
       name: 'date',
       group: 'dates',
@@ -81,5 +85,16 @@ export const albumType = defineType({
         })
       ]
     }),
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'name',
+      date: 'date',
+      media: 'image'
+    },
+    prepare: (prev) => ({
+      ...prev,
+      subtitle: new Date(prev.date).getFullYear().toString()
+    })
+  }
 })
