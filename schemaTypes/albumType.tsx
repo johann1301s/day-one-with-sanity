@@ -74,7 +74,10 @@ export const albumType = defineType({
         }),
         defineField({
           type: 'string',
-          name: 'nextlbum'
+          name: 'nextlbum',
+          hidden: (ctx) => {
+            return !!ctx.currentUser?.roles.find(({name}) => name === 'viewer')
+          },
         })
       ]
     }),
