@@ -52,6 +52,24 @@ export const albumType = defineType({
           <i>Date</i> the album was released.
         </div>
       )
-    })
+    }),
+    defineField({
+      name: 'otherAlbums',
+      type: 'object',
+      options: {
+        collapsed: true,
+        columns: 2
+      },
+      fields: [
+        defineField({
+          type: 'string',
+          name: 'previousAlbum'
+        }),
+        defineField({
+          type: 'string',
+          name: 'nextlbum'
+        })
+      ]
+    }),
   ]
 })
