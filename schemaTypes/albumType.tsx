@@ -7,7 +7,10 @@ export const albumType = defineType({
     defineField({
       type: 'string',
       name: 'name',
-      validation: (rule) => rule.required(),
+      validation: (rule) =>
+          rule
+            .required()
+            .error('Name of album is required.'),
       description: (
         <div>
           <i>Name</i> of the album
