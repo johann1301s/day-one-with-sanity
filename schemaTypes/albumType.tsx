@@ -9,8 +9,9 @@ export const albumType = defineType({
       name: 'name',
       validation: (rule) =>
           rule
-            .required()
-            .error('Name of album is required.'),
+            .min(2)
+            .max(20)
+            .warning('Name should be between 2-20 characters'),
       description: (
         <div>
           <i>Name</i> of the album
