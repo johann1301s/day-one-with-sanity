@@ -21,7 +21,10 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}
         S.view
           .component(DocumentsPane)
           .options({
-            query: `*[_type == "album" && name match "*mok*"]`,
+            query: `*[_type == "album" && name match "*mok*" && _id != $currentId]`,
+            params: {
+              currentId: `_id`
+            },
             options: { perspective: 'previewDrafts' }
           })
           .title('Other albums')
