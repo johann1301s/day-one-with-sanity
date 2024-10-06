@@ -7,8 +7,7 @@ export const albumType = defineType({
   fields: [
     defineField({
       type: 'string',
-      name: 'name',
-      title: 'Name',
+      name: 'name'
     })
   ]
 })
