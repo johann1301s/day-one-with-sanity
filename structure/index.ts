@@ -1,5 +1,5 @@
 import type {StructureResolver} from 'sanity/structure'
-import {CalendarIcon, UsersIcon, PinIcon} from '@sanity/icons'
+import {CalendarIcon, UsersIcon, PinIcon, MasterDetailIcon} from '@sanity/icons'
 
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -18,6 +18,12 @@ export const structure: StructureResolver = (S) =>
         .child(S.documentList().title('Past Events').filter('date < now()')),
       S.divider(),
       S.documentTypeListItem('artist').title('Artists').icon(UsersIcon),
+      S.divider(),
       S.documentTypeListItem('venue').title('Venues').icon(PinIcon),
-      S.documentTypeListItem('album').title('Albums').icon(PinIcon),
+      S.divider(),
+      S.listItem()
+        .title('Smart albums')
+        .schemaType('album')
+        .icon(MasterDetailIcon)
+        .child(S.documentList().title('fooo').filter('length(name) > 5'))
     ])
