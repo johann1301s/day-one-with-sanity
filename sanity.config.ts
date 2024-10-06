@@ -23,5 +23,10 @@ export default defineConfig({
     components: {
       input: MyInput
     }
+  },
+
+  tools: (prev, {currentUser}) => {
+    if (currentUser?.roles.some(({name}) => name === 'viewer')) return prev.filter((item) => item.name !== 'vision')
+    return prev
   }
 })
