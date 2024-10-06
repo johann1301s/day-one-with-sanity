@@ -17,6 +17,18 @@ export const albumType = defineType({
           <i>Name</i> of the album
         </div>
       )
+    }),
+    defineField({
+      type: 'datetime',
+      name: 'date',
+      validation: (rule) =>
+          rule
+            .required().info('This field is required.'),
+      description: (
+        <div>
+          <i>Date</i> the album was released.
+        </div>
+      )
     })
   ]
 })
