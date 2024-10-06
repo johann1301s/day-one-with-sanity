@@ -31,10 +31,11 @@ export const structure: StructureResolver = (S) =>
         .title('Albums greater than or equal to 5')
         .schemaType('album')
         .icon(MasterDetailIcon)
-        .child(S.documentList().title('fooo').filter('length(name) >= 5')),
+        .child(S.documentList().title('fooo').filter('_type == "album" && length(name) >= 5')),
       S.listItem()
         .title('Albums less than 5')
         .schemaType('album')
         .icon(MasterDetailIcon)
-        .child(S.documentList().title('fooo').filter('length(name) < 5'))
+        .child(S.documentList().title('fooo').filter('_type == "album" && length(name) < 5'))
     ])
+    

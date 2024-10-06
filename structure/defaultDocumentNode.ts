@@ -15,6 +15,17 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}
           })
           .title('Events'),
       ])
+    case 'album':
+      return S.document().views([
+        S.view.form(),
+        S.view
+          .component(DocumentsPane)
+          .options({
+            query: `*[_type == "album" && name match "*mok*"]`,
+            options: { perspective: 'previewDrafts' }
+          })
+          .title('Other albums')
+      ])
     default:
       return S.document().views([S.view.form()])
   }
