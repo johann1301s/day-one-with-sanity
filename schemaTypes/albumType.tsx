@@ -1,8 +1,15 @@
 import { defineField, defineType } from "sanity";
+import { EarthGlobeIcon } from '@sanity/icons'
 
 export const albumType = defineType({
   name: 'album',
   type: 'document',
+  groups: [{
+    name: 'dates',
+    title: 'Dates',
+    icon: EarthGlobeIcon,
+    default: true
+  }],
   fields: [
     defineField({
       type: 'string',
@@ -21,6 +28,7 @@ export const albumType = defineType({
     defineField({
       type: 'datetime',
       name: 'date',
+      group: 'dates',
       validation: (rule) =>
           rule
             .required().info('This field is required.'),
