@@ -1,5 +1,6 @@
 import { defineField, defineType } from "sanity";
 import { EarthGlobeIcon, ActivityIcon } from '@sanity/icons'
+import { MyInputLocal } from "./components/MyInputLocal";
 
 export const albumType = defineType({
   name: 'album',
@@ -63,7 +64,10 @@ export const albumType = defineType({
       fields: [
         defineField({
           type: 'string',
-          name: 'previousAlbum'
+          name: 'previousAlbum',
+          components: {
+            input: MyInputLocal
+          }
         }),
         defineField({
           type: 'string',

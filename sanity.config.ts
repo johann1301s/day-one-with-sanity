@@ -4,6 +4,7 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import {structure} from './structure'
 import {defaultDocumentNode} from './structure/defaultDocumentNode'
+import { MyInput } from './schemaTypes/components/MyInput'
 
 export default defineConfig({
   name: 'default',
@@ -17,4 +18,10 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
   },
+
+  form: {
+    components: {
+      input: MyInput
+    }
+  }
 })
