@@ -15,10 +15,13 @@ export const venueType = defineType({
     select: {
       title: 'name'
     },
-    prepare: (prev) => ({
-      ...prev,
-      subtitle: '...',
-      media: BarChartIcon
-    })
+    prepare: (prev) => {
+
+      return ({
+        ...prev,
+        subtitle: '...',
+        media: BarChartIcon
+      })
+    }
   }
 })
