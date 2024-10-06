@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {AddCommentIcon} from '@sanity/icons'
 
 export const artistType = defineType({
   name: 'artist',
@@ -10,4 +11,14 @@ export const artistType = defineType({
       type: 'string',
     }),
   ],
+  preview: {
+    select: {
+      name: 'name'
+    },
+    prepare: (prev) => ({
+      title: prev.name,
+      subtitle: prev.name,
+      media: AddCommentIcon
+    })
+  }
 })
