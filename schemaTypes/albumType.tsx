@@ -4,6 +4,11 @@ import { EarthGlobeIcon, ActivityIcon } from '@sanity/icons'
 export const albumType = defineType({
   name: 'album',
   type: 'document',
+  fieldsets: [{
+    name: 'all-inputs',
+    title: 'All inputs',
+    options: { columns: 2 }
+  }],
   groups: [{
     name: 'common',
     title: 'Common',
@@ -19,6 +24,7 @@ export const albumType = defineType({
       type: 'string',
       name: 'name',
       group: 'common',
+      fieldset: 'all-inputs',
       validation: (rule) =>
           rule
             .min(2)
@@ -34,6 +40,7 @@ export const albumType = defineType({
       type: 'datetime',
       name: 'date',
       group: 'dates',
+      fieldset: 'all-inputs',
       hidden: (ctx) => {
         return !ctx.document?.name
       },
