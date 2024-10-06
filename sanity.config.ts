@@ -17,6 +17,17 @@ export default defineConfig({
 
   schema: {
     types: schemaTypes,
+    templates: (prev, context) => [
+        ...prev.filter(({schemaType}) => schemaType !== 'album'),
+        {
+        id: 'album-prefix',
+        title: 'Album',
+        schemaType: 'album',
+        value: {
+          author: context.currentUser?.email
+        },
+      },
+    ],
   },
 
   form: {

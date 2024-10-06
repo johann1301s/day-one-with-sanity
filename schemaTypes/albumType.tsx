@@ -23,6 +23,11 @@ export const albumType = defineType({
   fields: [
     defineField({
       type: 'string',
+      name: 'author',
+      readOnly: true
+    }),
+    defineField({
+      type: 'string',
       name: 'name',
       group: 'common',
       fieldset: 'all-inputs',
