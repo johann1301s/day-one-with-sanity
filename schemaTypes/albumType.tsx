@@ -46,7 +46,7 @@ export const albumType = defineType({
         return !ctx.document?.name
       },
       readOnly: (ctx) => {
-        return !!ctx.currentUser?.roles.some((role) => role.name === 'admin')
+        return !ctx.currentUser?.roles.some((role) => role.name === 'contributor')
       },
       validation: (rule) =>
           rule
