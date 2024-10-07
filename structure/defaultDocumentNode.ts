@@ -1,5 +1,6 @@
 import type {DefaultDocumentNodeResolver} from 'sanity/structure'
 import DocumentsPane from 'sanity-plugin-documents-pane'
+import { PreviewComponent } from '../schemaTypes/components/PreviewComponent'
 
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}) => {
   switch (schemaType) {
@@ -27,7 +28,8 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}
             },
             options: { perspective: 'previewDrafts' }
           })
-          .title('Other albums')
+          .title('Other albums'),
+        S.view.component(PreviewComponent).title('Preview'),
       ])
     default:
       return S.document().views([S.view.form()])
