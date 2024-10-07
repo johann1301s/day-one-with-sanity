@@ -6,6 +6,12 @@ import {structure} from './structure'
 import {defaultDocumentNode} from './structure/defaultDocumentNode'
 import { MyInput } from './schemaTypes/components/MyInput'
 import { myTheme } from './common/theme'
+import {presentationTool} from 'sanity/presentation'
+
+const SANITY_STUDIO_PREVIEW_URL = (
+	process.env.SANITY_STUDIO_PREVIEW_URL
+	|| 'http://localhost:8080'
+)
 
 export default defineConfig({
   name: 'default',
@@ -14,7 +20,13 @@ export default defineConfig({
   projectId: '5mo4u4lk',
   dataset: 'production',
 
-  plugins: [structureTool({ structure, defaultDocumentNode }), visionTool()],
+  plugins: [
+    structureTool({ structure, defaultDocumentNode }),
+    visionTool(),
+    presentationTool({
+      previewUrl: SANITY_STUDIO_PREVIEW_URL
+    })
+  ],
 
   schema: {
     types: schemaTypes,
