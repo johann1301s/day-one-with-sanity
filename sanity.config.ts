@@ -8,6 +8,12 @@ import { MyInput } from './schemaTypes/components/MyInput'
 import { myTheme } from './common/theme'
 import {presentationTool} from 'sanity/presentation'
 import { media } from 'sanity-plugin-media'
+import {
+  dashboardTool,
+  sanityTutorialsWidget,
+  projectUsersWidget,
+  projectInfoWidget,
+} from "@sanity/dashboard";
 
 const SANITY_STUDIO_PREVIEW_URL = (
 	process.env.SANITY_STUDIO_PREVIEW_URL
@@ -22,6 +28,13 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [
+    dashboardTool({
+      widgets: [
+        sanityTutorialsWidget(),
+        projectInfoWidget(),
+        projectUsersWidget(),
+      ]
+    }),
     structureTool({ structure, defaultDocumentNode }),
     visionTool(),
     presentationTool({
