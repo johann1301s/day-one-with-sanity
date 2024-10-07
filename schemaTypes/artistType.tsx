@@ -9,6 +9,14 @@ export const artistType = defineType({
       name: 'name',
       type: 'string',
     }),
+    defineField({
+      name: 'description',
+      type: 'string',
+    }),
+    defineField({
+      name: 'photo',
+      type: 'image',
+    })
   ],
   preview: {
     select: {
