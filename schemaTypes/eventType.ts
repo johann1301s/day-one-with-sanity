@@ -45,6 +45,8 @@ export const eventType = defineType({
       group: 'details',
       type: 'string',
       title: 'Event format',
+      validation: (rule) => rule
+        .required(),
       options: {
           list: ['in-person', 'virtual'],
           layout: 'radio',
