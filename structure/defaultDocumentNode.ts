@@ -7,12 +7,21 @@ import { SanityDocument } from 'sanity'
 // Customise this function to show the correct URL based on the current document
 function getPreviewUrl(doc: any) {
   return doc?.slug?.current
-    ? `http://localhost:3000/${doc.slug.current}`
+    ? `http://localhost:3000/events/${doc.slug.current}`
     : 'http://localhost:3000'
 }
 
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}) => {
   switch (schemaType) {
+    case 'event':
+      return S.document().views([
+        S.view.form(),
+        S.view
+          .component(Iframe)
+          .options({
+            url: (doc: SanityDocument) => getPreviewUrl(doc),
+          })
+          .title('Preview Url')])
     case `artist`:
       return S.document().views([
         S.view.form(),
@@ -38,12 +47,6 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}
             options: { perspective: 'previewDrafts' }
           })
           .title('Other albums'),
-        S.view
-          .component(Iframe)
-          .options({
-            url: (doc: SanityDocument) => getPreviewUrl(doc),
-          })
-          .title('Preview Url'),
         S.view.component(PreviewComponent).title('Preview'),
       ])
     default:
