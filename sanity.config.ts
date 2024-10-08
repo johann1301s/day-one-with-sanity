@@ -1,6 +1,5 @@
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
-import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import {structure} from './structure'
 import {defaultDocumentNode} from './structure/defaultDocumentNode'
@@ -14,6 +13,7 @@ import {
   projectUsersWidget,
   projectInfoWidget,
 } from "@sanity/dashboard";
+import { visionTool } from '@sanity/vision'
 
 const SANITY_STUDIO_PREVIEW_URL = (
 	process.env.SANITY_STUDIO_PREVIEW_URL
@@ -36,11 +36,11 @@ export default defineConfig({
       ]
     }),
     structureTool({ structure, defaultDocumentNode }),
-    visionTool(),
     presentationTool({
       previewUrl: SANITY_STUDIO_PREVIEW_URL
     }),
-    media()
+    media(),
+    visionTool()
   ],
 
   schema: {
